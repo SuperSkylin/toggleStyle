@@ -33,10 +33,10 @@
             /* 简写 */
             /* transition: width 0.3s ease; */
         }
-        .child--active{
+        .child--item__active{
             color:red;
         }
-        .child--active::after{
+        .child--item__active::after{
             width: 100%;
         }
         .child--btn{
@@ -62,10 +62,10 @@
             return document.getElementsByClassName(element)[0];
         }
         $('child--btn').onclick=function(){
-            if(hasClass($('child--item'),'child--active')){
+            if(hasClass($('child--item'),'child--item__active')){
                 $('child--item').setAttribute("class",'child--item');
             }else{
-                $('child--item').setAttribute("class",'child--item child--active');
+                $('child--item').setAttribute("class",'child--item child--item__active');
             }
         }
     </script>
