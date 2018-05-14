@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>菜单切换</title>
+    <title>样式切换</title>
     <style>
         .parent{
             margin: 30px auto;
@@ -24,13 +24,28 @@
             bottom: 0;
             background: red;
             transform: translate(-50%);
-            transition:all 1s;
+            /* 过渡效果css属性名称 */
+            transition-property: width;
+            /* 过渡效果持续0.3秒 */
+            transition-duration: 0.3s;
+            /* 由慢到快再变慢，过渡会自然一点 */
+            transition-timing-function: ease;
+            /* 简写 */
+            /* transition: width 0.3s ease; */
+        }
+        .child--active{
+            color:red;
         }
         .child--active::after{
             width: 100%;
         }
         .child--btn{
-            margin-top:25px;
+            margin-top:30px;
+            border-radius: 3px;
+            border:1px solid #ccc;
+            cursor: pointer;  
+            /* 去除边框边缘外围样式 */
+            outline:none;
         }
     </style>
 </head>
