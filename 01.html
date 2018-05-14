@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>菜单切换</title>
+    <style>
+        .parent{
+            margin: 30px auto;
+            text-align: center;
+        }
+        .child--item{
+            display: inline-block;
+            padding-bottom: 10px;
+            position: relative;
+        }
+        .child--item:after{
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 3px;
+            left:50%;
+            bottom: 0;
+            background: red;
+            transform: translate(-50%);
+            transition:all 1s;
+        }
+        .child--active::after{
+            width: 100%;
+        }
+        .child--btn{
+            margin-top:25px;
+        }
+    </style>
+</head>
+<body>
+    <div class="parent">
+        <span class="child--item">我心飞翔</span><br/>
+        <button class="child--btn">切换样式</button>
+    </div>
+    <script>
+        function hasClass(element, cls) {
+         return (' ' + element.className + ' ').indexOf(' ' + cls + ' ') > -1;
+        }
+        function $(element){
+            return document.getElementsByClassName(element)[0];
+        }
+        $('child--btn').onclick=function(){
+            if(hasClass($('child--item'),'child--active')){
+                $('child--item').setAttribute("class",'child--item');
+            }else{
+                $('child--item').setAttribute("class",'child--item child--active');
+            }
+        }
+    </script>
+</body>
+</html>
