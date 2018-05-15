@@ -166,13 +166,16 @@
             }
             .face .eye-bottom{
                 top: 0;
-                transition: top 2s ease;
+                transition: top 2s ease-in-out;
             }
             .face .eye-core{
                 transition: width 1s ease ,margin-left 1s ease;
             }
             .face .face-red{
-                transition: opacity 1s ease;
+                transition: opacity 1s cubic-bezier(0.94, 0.06, 0.05, 0.06)
+            }
+            .face .mouth{
+                transition: border-radius 1s ease;
             }
             /*鼠标hover样式 写在这里*/
             .face:hover ~ .ear-wrap .left{
@@ -190,6 +193,12 @@
             }
             .face:hover .face-red{
                 opacity: 1;
+            }
+            .face:hover .mouth.left{
+               border-radius:  0% 40% 50% 30%;
+            }
+            .face:hover .mouth.right{
+                border-radius: 40% 0% 30% 50%;
             }
         </style>
     </head>
