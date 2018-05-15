@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        body{
+            margin: 0;
+            padding: 0;
+        }
+        .flex_center{
+            display: flex;
+            display: -webkit-flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .box{
+            width: 677px;
+            height: 237px;
+            display: flex;
+            display: -webkit-flex;
+            box-sizing: border-box;
+            position: relative;
+            background-color: #ffffff;
+            box-sizing: border-box;
+            font-family: '黑体';
+            font-weight: bold;
+        }
+        .box--item{
+            width: 60px;
+            height: 68px;
+            font-size: 18px;
+            line-height: 58.19px;
+            margin: 30px;
+            border: 1px solid #ebebeb;
+            background-color: #f7f6f6; 
+        }
+        .box--item__1{
+            transform: skew(30deg);
+        }
+        .box--item__2{
+            transform: scale(0.5,1);
+        }
+        .box--item__3{
+            transform: rotate(45deg);
+        }
+        .box--item__4{
+            transform: translate(10px,20px);
+        }
+        .box--item__5{
+            transform:skew(30deg)  scale(0.5,1)  rotate(45deg)  translate(10px,20px) ;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="box--item box--item__0 flex_center">
+            box0
+        </div>
+        <div class="box--item box--item__1 flex_center">
+            box1
+        </div>
+        <div class="box--item box--item__2 flex_center">
+            box2
+        </div>
+        <div class="box--item box--item__3 flex_center">
+            box3
+        </div>
+        <div class="box--item box--item__4 flex_center">
+            box4
+        </div>
+        <div class="box--item box--item__5 flex_center">
+            box5
+        </div>
+    </div>
+</body>
+</html>
