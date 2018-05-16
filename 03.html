@@ -169,10 +169,10 @@
                 transition: top 2s ease-in-out;
             }
             .face .eye-core{
-                transition: width 1s ease ,margin-left 1s ease;
+                transition: all 1s ease;
             }
             .face .face-red{
-                transition: opacity 1s cubic-bezier(0.94, 0.06, 0.05, 0.06)
+                transition: all 1s cubic-bezier(0.94, 0.06, 0.05, 0.06)
             }
             .face .mouth{
                 transition: border-radius 1s ease;
@@ -192,7 +192,8 @@
                 margin-left:-20px;
             }
             .face:hover .face-red{
-                opacity: 1;
+                transform: scale(0.7);
+                opacity: 0.7;
             }
             .face:hover .mouth.left{
                border-radius:  0% 40% 50% 50%;
