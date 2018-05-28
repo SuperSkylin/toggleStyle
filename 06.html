@@ -17,6 +17,9 @@
             width: 100%;
             height: 100%;
             position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
         }
         .slider-item{
             position: absolute;
@@ -24,28 +27,22 @@
             left: 0;
             width: 100%;
             height: 100%;
+            z-index:-2;
             background-size: cover;
             background-repeat: no-repeat;
-        }
-        .slider-pagination{
-            position: absolute;
-            width: 100%;
-            bottom: 50px;
-            display: flex;
-            display: -webkit-flex;
-            justify-content: center;
-            z-index: 1000;
         }
         .slider-pagination-item{
             width: 10%;
             height: 80px;
             margin-right: 20px;
+            margin-bottom: 50px;
             background-size: contain; 
             background-repeat: no-repeat;
             background-position: center;
             background-color: #333333;
             cursor: pointer;
             position: relative;
+            z-index:1000;
         }
         .slider-pagination-item::after{
             content: '';
@@ -56,14 +53,11 @@
             left:0;
             background-color: rgba(3, 3, 3, 0.5);
         }
-        .slider-pagination-item:hover::after,.slider-pagination-item:focus::after{
-            background-color: transparent; 
-        }
-        .slider-pagination-item-active::after{
-            background-color: transparent; 
-        }
         .slider-pagination-item:last-child{
             margin-right: 0;
+        }
+        .slider-pagination-item:hover::after,.slider-pagination-item:focus::after{
+            background-color: transparent; 
         }
         .slider-1{
             background-image: url('./images/06/1.jpg');
@@ -80,80 +74,80 @@
         .slider-5{
             background-image: url('./images/06/5.jpg');
         }
-        .slider-1-item{
-            left:-500px;
-            transition: left ease-out 0.5s;
+        /* 动画 */
+        .slider-pagination-1-item:hover ~.slider-1-item{
+            animation: animation-1  ease-out 0.5s;
+            z-index:-1;
         }
-        .slider-1-active{
-            left:0;
+        .slider-pagination-2-item:hover ~.slider-2-item{
+            animation: animation-2 ease-out 0.5s;
+            z-index:-1;
         }
-        .slider-2-item{
-            top: 350px;
-            transition: top ease-out 0.5s;
+        .slider-pagination-3-item:hover ~.slider-3-item{
+            animation: animation-3 ease-in 1s;
+            z-index:-1;
         }
-        .slider-2-active{
-           top:0;
+        .slider-pagination-4-item:hover ~.slider-4-item{
+            animation: animation-4 ease-out 1s;
+            z-index:-1;
         }
-        .slider-3-item{
-            transform: scale(0.1);
-            transition: transform ease-in 1s;
+        .slider-pagination-5-item:hover ~.slider-5-item{
+            animation: animation-5 ease-in-out 0.7s;
+            z-index:-1;
         }
-        .slider-3-active{
-            transform: scale(1);
+        @keyframes animation-1{
+            from{
+                left:-500px;
+            }
+            to{
+                left:0;
+            }
         }
-        .slider-4-item{
-            transform: scale(2);
-            transition: transform ease-out 1s;
+        @keyframes animation-2{
+            from {
+                top: 350px; 
+            }
+            to{
+                top:0;
+            }
         }
-        .slider-4-active{
-            transform: scale(1);
+        @keyframes animation-3{
+            from {
+                transform: scale(0.1);
+            }
+            to{
+                transform: scale(1);
+            }
         }
-        .slider-5-item{
-            transform: rotate(360deg) scale(0);
-            transition: transform ease-in-out 0.7s;
+        @keyframes animation-4{
+            from {
+                transform: scale(2);
+            }
+            to{
+                transform: scale(1);
+            }
         }
-        .slider-5-active{
-            transform: rotate(0) scale(1);
+        @keyframes animation-5{
+            from {
+                transform: rotate(-360deg) scale(0.1);
+            }
+            to{
+                transform: rotate(0) scale(1);
+            }
         }
     </style>
 </head>
 <body>
     <div class="slider-box">
+        <div class="slider-pagination-item slider-pagination-1-item slider-1"></div>
+        <div class="slider-pagination-item slider-pagination-2-item slider-2"></div>
+        <div class="slider-pagination-item slider-pagination-3-item slider-3"></div>
+        <div class="slider-pagination-item slider-pagination-4-item slider-4"></div>
+        <div class="slider-pagination-item slider-pagination-5-item slider-5"></div>
         <div class="slider-item slider-1-item slider-1"></div>
         <div class="slider-item slider-2-item slider-2"></div>
         <div class="slider-item slider-3-item slider-3"></div>
         <div class="slider-item slider-4-item slider-4"></div>
         <div class="slider-item slider-5-item slider-5"></div>
-    </div>
-    <div class="slider-pagination">
-        <div class="slider-pagination-item slider-1"></div>
-        <div class="slider-pagination-item slider-2"></div>
-        <div class="slider-pagination-item slider-3"></div>
-        <div class="slider-pagination-item slider-4"></div>
-        <div class="slider-pagination-item slider-5"></div>
-    </div>
-    <script>
-        function $(element){
-            return document.getElementsByClassName(element);
-        }
-        for(var i=0;i<$('slider-pagination-item').length;i++){
-            // (function(i){
-            //     $('slider-pagination-item')[i].onclick=function(){
-            //         console.log(i);
-            //     }
-            // })(i)
-            let j=i;
-            $('slider-pagination-item')[j].onclick=function(){
-                for(var k =0;k<$('slider-item').length;k++){
-                    $('slider-item')[k].style.zIndex=0;
-                    $('slider-item')[k].classList.remove('slider-'+[k+1]+'-active');
-                    $('slider-pagination-item')[k].classList.remove('slider-pagination-item-active');
-                }
-                this.classList.add('slider-pagination-item-active');
-                $('slider-item')[j].style.zIndex=10;
-                $('slider-item')[j].classList.add('slider-'+[j+1]+'-active');
-            }
-        }
-    </script>
 </body>
 </html>
