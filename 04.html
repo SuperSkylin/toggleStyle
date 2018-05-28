@@ -6,7 +6,12 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>3D翻转</title>
     <style>
+        body{
+            perspective: 650;
+            -webkit-perspective: 650; /* Safari 和 Chrome */
+        }
         .box{
+            margin: 50px auto;
             width: 250px;
             height: 350px;
             transform-origin: center;
