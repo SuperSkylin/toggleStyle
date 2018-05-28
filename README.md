@@ -26,3 +26,8 @@ No.6 - 利用 CSS animation 制作一个炫酷的 Slider
 https://superskylin.github.io/toggleStyle/06.html
 
 ```
+No.7 - 使用 animate.css 实现一个优雅的登录框
+```
+https://superskylin.github.io/toggleStyle/07.html
+
+```
